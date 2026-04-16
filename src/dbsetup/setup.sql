@@ -1,4 +1,4 @@
---- dummy users for use
+--- users for use
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
 
