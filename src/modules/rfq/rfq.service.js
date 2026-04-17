@@ -137,3 +137,13 @@ exports.askQuestion = async (rfqId, supplierId, message) => {
     created_at: new Date()
   };
 };
+exports.getMyRFQs = async (userId) => {
+  const res = await db.query(
+    `SELECT * FROM rfqs 
+     WHERE created_by = $1 
+     ORDER BY created_at DESC`,
+    [userId]
+  );
+
+  return res.rows;
+};

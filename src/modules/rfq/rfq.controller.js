@@ -73,3 +73,16 @@ exports.askQuestion = async (req, res) => {
     res.status(500).json({ message: "Error asking question" });
   }
 };
+
+exports.getMyRFQs = async (req, res) => {
+  try {
+    const userId = 1; // TEMP (until auth ready)
+
+    const data = await rfqService.getMyRFQs(userId);
+
+    res.json(data);
+  } catch (err) {
+    console.error("GET MY RFQs error:", err);
+    res.status(500).json({ message: "Error fetching buyer RFQs" });
+  }
+};
