@@ -9,6 +9,9 @@ CREATE TABLE users (
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- insert dummy user 
+-- INSERT INTO users (email, password, role)
+-- VALUES ('test@test.com', '123456', 'buyer');
 
 -- create RFQs table
 CREATE TABLE rfqs (
@@ -62,11 +65,3 @@ CREATE TABLE rfq_responses (
 
     UNIQUE (rfq_id, supplier_id)
 );
-
---- indexing
-
-CREATE INDEX idx_rfqs_status ON rfqs(status);
-CREATE INDEX idx_rfqs_created_by ON rfqs(created_by);
-
-CREATE INDEX idx_rfq_responses_supplier ON rfq_responses(supplier_id);
-CREATE INDEX idx_rfq_responses_rfq ON rfq_responses(rfq_id);
